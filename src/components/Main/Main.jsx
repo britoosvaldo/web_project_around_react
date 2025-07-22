@@ -1,4 +1,4 @@
-import avatar from "../../../images/profile-photo.png";
+import avatar from "../../images/profile-photo.png";
 import { useState } from "react";
 import NewCard from "./components/Popup/components/Newcard/NewCard";
 import EditProfile from "./components/Popup/components/EditProfile/EditProfile";
