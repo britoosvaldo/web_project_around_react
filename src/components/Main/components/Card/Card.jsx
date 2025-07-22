@@ -5,7 +5,7 @@ export default function Card({ card, onImageClick }) {
     <li className="elements__card">
       <img
         className="elements__delete-button"
-        src="/web_project_around_react/images/delete-button.png"
+        src={`${import.meta.env.BASE_URL}images/delete-button.png`}
         alt="Delete Button"
       />
       <img
@@ -19,7 +19,7 @@ export default function Card({ card, onImageClick }) {
         <h2 className="elements__text">{name}</h2>
         <img
           className="elements__like-button"
-          src="/web_project_around_react/images/like-button.png"
+          src={`${import.meta.env.BASE_URL}images/like-button.png`}
           alt="Like Button"
         />
       </div>
