@@ -5,7 +5,7 @@ export default function Card({ card, onImageClick }) {
     <li className="elements__card">
       <img
         className="elements__delete-button"
-        src="../../images/delete-button.png"
+        src="./images/delete-button.png"
         alt="Delete Button"
       />
       <img
@@ -19,7 +19,7 @@ export default function Card({ card, onImageClick }) {
         <h2 className="elements__text">{name}</h2>
         <img
           className="elements__like-button"
-          src="../../images/like-button.png"
+          src="./images/like-button.png"
           alt="Like Button"
         />
       </div>
