@@ -1,6 +1,18 @@
-export default function NewCard() {
+import { useState } from "react";
+
+export default function NewCard({ onAddPlaceSubmit }) {
+  const [name, setName] = useState("");
+  const [link, setLink] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onAddPlaceSubmit({ name, link }); // chama função vinda do Main/App
+    setName(""); // limpa os campos
+    setLink("");
+  };
+
   return (
-    <form className="add-popup__form">
+    <form className="add-popup__form" onSubmit={handleSubmit} noValidate>
       <fieldset className="popup__form-fieldset">
         <div className="popup__input-group">
           <input
@@ -9,9 +21,11 @@ export default function NewCard() {
             id="name-title"
             name="name-title"
             placeholder="Título"
-            minlength="2"
-            maxlength="30"
+            minLength={2}
+            maxLength={30}
             required
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
           <span className="popup__input-error" id="name-title-error"></span>
         </div>
@@ -23,6 +37,8 @@ export default function NewCard() {
             name="link"
             placeholder="URL"
             required
+            value={link}
+            onChange={(e) => setLink(e.target.value)}
           />
           <span className="popup__input-error" id="link-error"></span>
         </div>

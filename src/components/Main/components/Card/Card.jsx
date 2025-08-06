@@ -1,13 +1,28 @@
-export default function Card({ card, onImageClick }) {
-  const { name, link } = card;
+export default function Card({ card, onImageClick, onCardLike, onCardDelete }) {
+  const { name, link, isLiked } = card;
+
+  const cardLikeButtonClassName = `elements__like-button ${
+    isLiked ? "elements__like-button_is-active" : ""
+  }`;
+
+  function handleLikeClick() {
+    onCardLike(card);
+  }
+
+  function handleDeleteClick() {
+    onCardDelete(card);
+  }
 
   return (
     <li className="elements__card">
       <img
         className="elements__delete-button"
-        src={`${import.meta.env.BASE_URL}images/delete-button.png`}
+        src="/web_project_around_react/images/delete-button.png"
         alt="Delete Button"
+        onClick={handleDeleteClick}
+        style={{ cursor: "pointer" }}
       />
+
       <img
         className="elements__image"
         src={link}
@@ -15,12 +30,20 @@ export default function Card({ card, onImageClick }) {
         onClick={() => onImageClick(card)}
         style={{ cursor: "pointer" }}
       />
+
       <div className="elements__description">
         <h2 className="elements__text">{name}</h2>
+
         <img
-          className="elements__like-button"
-          src={`${import.meta.env.BASE_URL}images/like-button.png`}
+          className={cardLikeButtonClassName}
+          src={
+            isLiked
+              ? "/web_project_around_react/images/like-button.png"
+              : "/web_project_around_react/images/liked-button.png"
+          }
           alt="Like Button"
+          onClick={handleLikeClick}
+          style={{ cursor: "pointer" }}
         />
       </div>
     </li>
