@@ -12,7 +12,7 @@ export default function EditAvatar() {
       avatar: inputRef.current.value,
     });
 
-    e.target.reset(); // limpa o input
+    e.target.reset();
   }
 
   return (

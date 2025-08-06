@@ -5,6 +5,7 @@ import NewCard from "./components/Popup/components/Newcard/NewCard";
 import EditProfile from "./components/Popup/components/EditProfile/EditProfile";
 import EditAvatar from "./components/Popup/components/EditAvatar/EditAvatar";
 import Card from "./components/Card/Card";
+import Popup from "../../components/Main/components/Popup/Popup";
 
 import ImagePopup from "./components/ImagePopup/ImagePopup";
 
@@ -14,7 +15,8 @@ export default function Main({
   onCardDelete,
   onAddPlaceSubmit,
   onOpenPopup,
-  onClosePopup, // <-- receba aqui!
+  onClosePopup,
+  popup,
 }) {
   const { currentUser } = useContext(CurrentUserContext);
 
@@ -28,7 +30,7 @@ export default function Main({
   function handleCardImageClick(card) {
     onOpenPopup({
       title: "",
-      children: <ImagePopup card={card} onClose={onClosePopup} />, // <-- ajuste aqui!
+      children: <ImagePopup card={card} onClose={onClosePopup} />,
     });
   }
 
@@ -90,6 +92,11 @@ export default function Main({
           />
         ))}
       </ul>
+      {popup && (
+        <Popup onClose={onClosePopup} title={popup.title}>
+          {popup.children}
+        </Popup>
+      )}
     </main>
   );
 }

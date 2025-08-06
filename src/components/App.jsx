@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import Main from "../components/Main/Main";
-import Popup from "../components/Main/components/Popup/Popup";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import CurrentUserContext from "../contexts/CurrentUserContext";
@@ -44,7 +43,6 @@ export default function App() {
     api
       .changeLikeCardStatus(card._id, !isLiked)
       .then((newCard) => {
-        // Debug
         console.log("API devolveu card:", newCard);
         console.log("Usuário logado:", currentUser);
         const updatedCard = {
@@ -75,10 +73,8 @@ export default function App() {
     api
       .addNewCard(name, link)
       .then((newCard) => {
-        // Log para debug (você pode tirar depois)
         console.log("API respondeu:", newCard);
 
-        // Garante que não quebra caso newCard.likes não exista
         const enrichedCard = {
           ...newCard,
           isLiked:
@@ -120,11 +116,6 @@ export default function App() {
         />
         <Footer />
       </div>
-      {popup && (
-        <Popup onClose={handleClosePopup} title={popup.title}>
-          {popup.children}
-        </Popup>
-      )}
     </CurrentUserContext.Provider>
   );
 }

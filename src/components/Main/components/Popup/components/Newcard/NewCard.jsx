@@ -6,8 +6,8 @@ export default function NewCard({ onAddPlaceSubmit }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onAddPlaceSubmit({ name, link }); // chama função vinda do Main/App
-    setName(""); // limpa os campos
+    onAddPlaceSubmit({ name, link });
+    setName("");
     setLink("");
   };
 
