@@ -6,7 +6,6 @@ import EditProfile from "./components/Popup/components/EditProfile/EditProfile";
 import EditAvatar from "./components/Popup/components/EditAvatar/EditAvatar";
 import Card from "./components/Card/Card";
 import Popup from "../../components/Main/components/Popup/Popup";
-
 import ImagePopup from "./components/ImagePopup/ImagePopup";
 
 export default function Main({
@@ -28,10 +27,7 @@ export default function Main({
   const editAvatarPopup = { title: "Edit Avatar", children: <EditAvatar /> };
 
   function handleCardImageClick(card) {
-    onOpenPopup({
-      title: "",
-      children: <ImagePopup card={card} onClose={onClosePopup} />,
-    });
+    onOpenPopup({ type: "image", card });
   }
 
   return (
@@ -55,6 +51,7 @@ export default function Main({
             />
           </button>
         </div>
+
         <div className="profile__info">
           <h2 className="profile__name">{currentUser.name || "..."}</h2>
           <button
@@ -69,6 +66,7 @@ export default function Main({
           </button>
           <h3 className="profile__about">{currentUser.about || "..."}</h3>
         </div>
+
         <button
           className="profile__add-button"
           onClick={() => onOpenPopup(newCardPopup)}
@@ -92,7 +90,12 @@ export default function Main({
           />
         ))}
       </ul>
-      {popup && (
+
+      {popup?.type === "image" && (
+        <ImagePopup card={popup.card} onClose={onClosePopup} />
+      )}
+
+      {popup && popup.type !== "image" && (
         <Popup onClose={onClosePopup} title={popup.title}>
           {popup.children}
         </Popup>

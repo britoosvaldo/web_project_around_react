@@ -2,7 +2,7 @@ export default function ImagePopup(props) {
   const { card, onClose } = props;
   const { name, link } = card;
   return (
-    <section className="image-popup popup">
+    <section className="image-popup">
       <div className="image-popup__container">
         <button
           type="button"
