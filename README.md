@@ -1,12 +1,5 @@
-# React + Vite
+# Tripleten web_project_around_react
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project was developed using HTML, CSS, JavaScript, React, and Vite, with the design created in Figma. The page was dedicated to showcasing everything learned so far in the course, including the use of Flexbox, Grid, Position, forms, and card creation, always aiming to deliver the most faithful result possible to the original Figma design. The site was built to be responsive across at least three different screen sizes, and JavaScript was integrated with all these elements to add functionality and interactivity, ensuring the React application is fully functional when executed.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Link: https://britoosvaldo.github.io/web_project_around_react/
